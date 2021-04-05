@@ -23,7 +23,7 @@ export default {
   },
   watch:{
     $route(){
-      
+
     }
   },
   created(){
