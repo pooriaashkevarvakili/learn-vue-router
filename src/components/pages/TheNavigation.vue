@@ -12,7 +12,7 @@
 
 </li>
           <li class="nav-item">
-            <router-link to="/posts" class="nav-link">post</router-link>
+            <router-link :to="{name:'posts'}" class="nav-link">post</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/CreatePost" class="nav-link">create Post</router-link>

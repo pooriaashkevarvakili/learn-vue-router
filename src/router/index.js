@@ -1,4 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Posts from "../components/pages/Posts"
+import PostsFooter from "../components/pages/postsFooter"
+import CreatePostFooter from "../components/pages/CreatePostFooter";
+import CreatePost from "../components/pages/CreatePost";
 const routes = [
   {
     path: '/',
@@ -9,16 +13,31 @@ const routes = [
   {
    path:'/posts',
     name:'posts',
-    component:()=>import('../components/pages/Posts')
+    component:()=>import('../components/pages/Posts'),
+      components:{
+       default:Posts,
+          footer: PostsFooter
+      },
+      children:[
+          {
+            path:'/noPost',
+              name:'single-post',
+            component:()=>import('../components/pages/NoPost')
+          },
+          {
+              path:':id',
+              component:()=>import('../components/pages/PostItem')
+          }
+      ]
   },
-  {
-    path:'/posts/:id',
-    component:()=>import('../components/pages/PostItem')
-  },
+
   {
     path:'/createPost',
     name:'createPost',
-    component:()=>import('../components/pages/CreatePost')
+    components:{
+        default:CreatePost,
+        footer:CreatePostFooter
+    }
   },
     {
         path:'/:NotFound(.*)*',

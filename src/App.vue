@@ -5,6 +5,9 @@
       <div class="col-md-12">
         <router-view/>
       </div>
+      <div class="col-md-12">
+        <router-view name="footer"/>
+      </div>
     </div>
   </div>
 
