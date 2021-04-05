@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-
 const routes = [
   {
     path: '/',
@@ -13,13 +12,16 @@ const routes = [
     component:()=>import('../components/pages/Posts')
   },
   {
+    path:'/posts/:id',
+    component:()=>import('../components/pages/PostItem')
+  },
+  {
     path:'/createPost',
     name:'createPost',
     component:()=>import('../components/pages/CreatePost')
   }
 ]
-
-const router = createRouter({
+ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
